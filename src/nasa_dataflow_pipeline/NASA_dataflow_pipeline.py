@@ -3,7 +3,7 @@ from apache_beam.io import ReadFromText
 from apache_beam.io import WriteToText
 from apache_beam.options.pipeline_options import PipelineOptions
 import json
-import urllib.request
+import urllib
 import re
 # As part of the initial setup, install Google Cloud Platform specific extra components.
 #pip install apache-beam[gcp]
@@ -17,7 +17,7 @@ p = beam.Pipeline(options=PipelineOptions())
 ##--<option>=<value>
 
 def run(argv=None):
-  """Main entry point; defines and runs the wordcount pipeline."""
+	"""Main entry point; defines and runs the wordcount pipeline."""
 
 	parser = argparse.ArgumentParser()
 	parser.add_argument('--input',
