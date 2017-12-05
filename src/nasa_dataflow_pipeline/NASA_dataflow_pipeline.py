@@ -6,6 +6,7 @@ import json
 import urllib
 import re
 import logging
+import argparse
 # As part of the initial setup, install Google Cloud Platform specific extra components.
 #pip install apache-beam[gcp]
 #python -m apache_beam.examples.wordcount_minimal --input gs://dataflow-samples/shakespeare/kinglear.txt \
