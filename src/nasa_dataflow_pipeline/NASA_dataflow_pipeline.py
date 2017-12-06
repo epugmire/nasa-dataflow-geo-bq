@@ -58,7 +58,7 @@ def run(argv=None):
 					#if response_dict['status'] == 'ZERO_RESULTS':
 					#	formatted_address = response_dict['status']
 					#else:
-						formatted_address = response_dict['results'][0]['formatted_address']
+					#	formatted_address = response_dict['results'][0]['formatted_address']
 					return [lat_long[0] + ','+element.rsplit(',',1)[1] + ',' + url_string]
 				##return ['https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat_long[0] + '&location_type=APPROXIMATE&result_type=country|locality&key=AIzaSyCc_Z2Jqqa1JLhZhSaURtUhF-N34PCQwrw']
 
