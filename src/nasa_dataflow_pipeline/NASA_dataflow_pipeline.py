@@ -55,7 +55,7 @@ def run(argv=None):
 					url_string = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat_long[0] + '&location_type=APPROXIMATE&result_type=country|locality&key=AIzaSyCc_Z2Jqqa1JLhZhSaURtUhF-N34PCQwrw'
 					response = urllib2.urlopen(url_string)
 					response_dict = json.load(response)
-					if response_dict['status'] = 'ZERO_RESULTS':
+					if response_dict['status'] == 'ZERO_RESULTS':
 						formatted_address = response_dict['status']
 					else:
 						formatted_address = response_dict['results'][0]['formatted_address']
