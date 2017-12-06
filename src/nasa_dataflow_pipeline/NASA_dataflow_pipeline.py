@@ -52,8 +52,8 @@ def run(argv=None):
 			def process(self, element):
 				lat_long = re.findall(r'\"(.+?)\"',element)
 				if lat_long:
-					return [lat_long[0]]
-				##return ['https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat_long + '&location_type=APPROXIMATE&result_type=country|locality&key=AIzaSyCc_Z2Jqqa1JLhZhSaURtUhF-N34PCQwrw']
+					return ['https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat_long[0] + '&location_type=APPROXIMATE&result_type=country|locality&key=AIzaSyCc_Z2Jqqa1JLhZhSaURtUhF-N34PCQwrw']
+				##return ['https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat_long[0] + '&location_type=APPROXIMATE&result_type=country|locality&key=AIzaSyCc_Z2Jqqa1JLhZhSaURtUhF-N34PCQwrw']
 
 		##urlData = "http://api.openweathermap.org/data/2.5/weather?q=Boras,SE"
 
