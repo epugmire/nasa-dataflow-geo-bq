@@ -51,7 +51,8 @@ def run(argv=None):
 		class getURL(beam.DoFn):
 			def process(self, element):
 				lat_long = re.match(r'\"(.+?)\"',element)
-				return ['https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat_long + '&location_type=APPROXIMATE&result_type=country|locality&key=AIzaSyCc_Z2Jqqa1JLhZhSaURtUhF-N34PCQwrw']
+				return [lat_long]
+				##return ['https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat_long + '&location_type=APPROXIMATE&result_type=country|locality&key=AIzaSyCc_Z2Jqqa1JLhZhSaURtUhF-N34PCQwrw']
 
 		##urlData = "http://api.openweathermap.org/data/2.5/weather?q=Boras,SE"
 
