@@ -52,8 +52,9 @@ def run(argv=None):
 			def process(self, element):
 				lat_long = re.findall(r'\"(.+?)\"',element)
 				if lat_long:
-					response = urllib2.urlopen('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat_long[0] + '&location_type=APPROXIMATE&result_type=country|locality&key=AIzaSyCc_Z2Jqqa1JLhZhSaURtUhF-N34PCQwrw')
-					return [lat_long[0] + ','+element.rsplit(',',1)[1] + ',' + json.dumps(response, default=set_default)]
+					url_string = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat_long[0] + '&location_type=APPROXIMATE&result_type=country|locality&key=AIzaSyCc_Z2Jqqa1JLhZhSaURtUhF-N34PCQwrw'
+					##response = urllib2.urlopen('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat_long[0] + '&location_type=APPROXIMATE&result_type=country|locality&key=AIzaSyCc_Z2Jqqa1JLhZhSaURtUhF-N34PCQwrw')
+					return [lat_long[0] + ','+element.rsplit(',',1)[1] + ',' + url_string]
 				##return ['https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat_long[0] + '&location_type=APPROXIMATE&result_type=country|locality&key=AIzaSyCc_Z2Jqqa1JLhZhSaURtUhF-N34PCQwrw']
 
 		##urlData = "http://api.openweathermap.org/data/2.5/weather?q=Boras,SE"
