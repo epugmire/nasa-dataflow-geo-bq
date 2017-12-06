@@ -53,8 +53,13 @@ def run(argv=None):
 				lat_long = re.findall(r'\"(.+?)\"',element)
 				if lat_long:
 					url_string = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat_long[0] + '&location_type=APPROXIMATE&result_type=country|locality&key=AIzaSyCc_Z2Jqqa1JLhZhSaURtUhF-N34PCQwrw'
-					##response = urllib2.urlopen('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat_long[0] + '&location_type=APPROXIMATE&result_type=country|locality&key=AIzaSyCc_Z2Jqqa1JLhZhSaURtUhF-N34PCQwrw')
-					return [lat_long[0] + ','+element.rsplit(',',1)[1] + ',' + url_string]
+					response = urllib2.urlopen(url_string)
+					response_dict = json.load(response)
+					if response_dict['status'] = 'ZERO_RESULTS':
+						formatted_address = response_dict['status']
+					else:
+						formatted_address = response_dict['results'][0]['formatted_address']
+					return [lat_long[0] + ','+element.rsplit(',',1)[1] + ',' + formatted_address]
 				##return ['https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat_long[0] + '&location_type=APPROXIMATE&result_type=country|locality&key=AIzaSyCc_Z2Jqqa1JLhZhSaURtUhF-N34PCQwrw']
 
 		##urlData = "http://api.openweathermap.org/data/2.5/weather?q=Boras,SE"
