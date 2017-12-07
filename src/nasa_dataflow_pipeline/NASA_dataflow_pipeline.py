@@ -26,7 +26,7 @@ def run(argv=None):
 	parser.add_argument('--input',
 					dest='input',
                     help='Input for the pipeline',
-                    default='gs://nasa-dataflow-geo-bq/oneline.csv')
+                    default='gs://nasa-dataflow-geo-bq/fiveline.csv')
 	parser.add_argument('--output',
 					dest='output',
                     help='Output for the pipeline',
