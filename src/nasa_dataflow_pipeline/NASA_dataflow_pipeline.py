@@ -64,9 +64,7 @@ def run(argv=None):
 					else:
 						formatted_address = response_dict['results'][0]['formatted_address']
 					return [lat_long[0] + ','+element.rsplit(',',1)[1] + ',' + formatted_address]
-				##return ['https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat_long[0] + '&location_type=APPROXIMATE&result_type=country|locality&key=AIzaSyCc_Z2Jqqa1JLhZhSaURtUhF-N34PCQwrw']
 
-		##urlData = "http://api.openweathermap.org/data/2.5/weather?q=Boras,SE"
 
 		URLs = lines | beam.ParDo(getURL())
 
