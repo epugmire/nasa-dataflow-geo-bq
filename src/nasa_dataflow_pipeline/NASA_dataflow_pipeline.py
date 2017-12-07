@@ -56,7 +56,7 @@ def run(argv=None):
 			def process(self, element):
 				lat_long = re.findall(r'\"(.+?)\"',element)
 				if lat_long:
-					url_string = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=%s&location_type=APPROXIMATE&result_type=country|locality&key=' + known_args.geo_key  % re.sub("\s+", "", lat_long[0])
+					url_string = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=%s&location_type=APPROXIMATE&result_type=country|locality&key=%s' % (re.sub("\s+", "", lat_long[0]), known_args.geo_key)
   					response = urllib2.urlopen(url_string)
   					response_dict = json.load(response)
   					if response_dict['status'] == 'ZERO_RESULTS':
