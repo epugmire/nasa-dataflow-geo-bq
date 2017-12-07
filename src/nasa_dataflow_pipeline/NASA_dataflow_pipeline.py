@@ -31,6 +31,10 @@ def run(argv=None):
 					dest='output',
                     help='Output for the pipeline',
                     default='gs://nasa-dataflow-geo-bq/results')
+	parser.add_argument('--geo_key',
+					dest='geo_key',
+                    help='Geo API key',
+                    default='')	
 
 	known_args, pipeline_args = parser.parse_known_args(argv)
 
@@ -52,7 +56,11 @@ def run(argv=None):
 			def process(self, element):
 				lat_long = re.findall(r'\"(.+?)\"',element)
 				if lat_long:
-					url_string = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat_long[0] + '&location_type=APPROXIMATE&result_type=country|locality&key='
+					url_string = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=%s&location_type=APPROXIMATE&result_type=country|locality&key=' + known_args.geo_key  % re.sub("\s+", "", lat_long[0])
+  					response = urllib2.urlopen(url_string)
+  					response_dict = json.load(response)
+  					if response_dict['status'] == 'ZERO_RESULTS':
+
 					response = urllib2.urlopen(url_string)
 					response_dict = json.load(response)
 					if response_dict['status'] == 'ZERO_RESULTS':
